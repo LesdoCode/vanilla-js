@@ -20,7 +20,7 @@ body {
 
 .card {
 	background-color: rgb(43, 0, 0);
-	color: red;
+	color: white;
 	width: 200px;
 	height: 200px;
 	margin: 10px 10px 0 0px;
@@ -34,4 +34,15 @@ body {
 .card:hover {
 	background-color: rgb(30, 0, 0);
 	border-radius: 5px;
+}
+
+.new-div {
+	border-radius: 50%;
+	background-color: white;
+	color: black;
+	width: 150px;
+	height: 150px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
