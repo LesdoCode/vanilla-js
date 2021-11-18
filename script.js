@@ -1,31 +1,30 @@
-const card5 = document.getElementById("card-5"); //get card 5 from html
-const card6 = document.getElementById("card-6"); //get card 6 from html
+const grid = document.getElementById("grid");
+let currentPlayer = "O";
+const winningCombinations = [
+	[0, 1, 2],
+	[3, 4, 5],
+	[6, 7, 8],
+	[0, 3, 6],
+	[1, 4, 7],
+	[2, 5, 8],
+	[0, 4, 8],
+	[2, 4, 6],
+];
 
-let counter = 0;
-let currentColor = "blue";
-
-card5.addEventListener("click", function () {
-	card6.innerHTML = ++counter;
-
-	if (currentColor !== "blue") {
-		currentColor = "blue";
-	} else {
-		currentColor = "green";
-	}
-	card5.style = `background-color: ${currentColor};`;
-});
-
-//the above can also be expressed way like like: uncomment it and check out
-/*function card5_click_handler() {
-	card6.innerHTML = ++counter;
-
-	if (currentColor !== "blue") {
-		currentColor = "blue";
-	} else {
-		currentColor = "green";
-	}
-	card5.style = `background-color: ${currentColor};`;
+function getNextPlayer() {
+	currentPlayer = currentPlayer === "X" ? "O" : "X";
+	return currentPlayer;
 }
-card5.addEventListener("click", card5_click_handler);*/
 
-//Find all event listeners here: https://developer.mozilla.org/en-US/docs/Web/Events
+function gridClickEventHandler(event) {
+	const clickedButton = event.target;
+	if (!clickedButton.classList.contains("card")) return;
+	if (clickedButton.classList.contains("played")) return;
+
+	clickedButton.classList.add("played");
+	clickedButton.innerHTML = getNextPlayer();
+}
+
+function isWin(grid, player) {}
+
+grid.addEventListener("click", gridClickEventHandler);
